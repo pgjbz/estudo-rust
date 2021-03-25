@@ -24,6 +24,8 @@ fn main() {
     let char_value: char = 'a';
     println!("Char value: {0}", char_value);
     let string_value: &'static str = "Hola que pasas";
+    let string_ptr: &str = "Hola manito!";
+    println!("{}", string_ptr);
     println!("String value: {0}", string_value);
     let sample_i_size: isize = 9223372036854775807; //same i64
     println!("i size value: {0}", sample_i_size);
