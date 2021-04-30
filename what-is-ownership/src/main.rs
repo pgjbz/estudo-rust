@@ -1,3 +1,4 @@
+
 fn main() {
     let mut s: String = String::from("Hello"); //the key world "mut" make variable mutable
     s.push_str(", world!");
