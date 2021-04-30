@@ -5,6 +5,12 @@ struct User {
     sign_in_count: u64
 }
 
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
 fn main() {
     let immutable_user: User = User {
         name: String::from("Shaman"),
@@ -42,12 +48,25 @@ fn main() {
     };
     print_user(&user_from_another2);
     print_user(&immutable_user);
-    
+
     struct Color(i32, i32, i32);
     struct Point(i32, i32, i32);
 
-    let black = Color(0, 0, 0);
-    let origin = Point(0, 0, 0);
+    let black: Color = Color(0, 0, 0);
+    let origin: Point = Point(0, 0, 0);
+
+    let rect1 = Rectangle {
+        width: 30,
+        height: 50,
+    };
+
+    println!("Area of retangle is {}", area(&rect1));
+
+    println!("rect1 is {:?}", rect1);
+}
+
+fn area(rectangle: &Rectangle) -> u32 {
+    rectangle.width * rectangle.height
 }
 
 fn build_user1(name: String, email: String) -> User {
