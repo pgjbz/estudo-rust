@@ -18,3 +18,4 @@ Cargo.lock
 */sonarlint/
 */.ideia/
 *.iml
+.idea/
