@@ -11,6 +11,12 @@ fn main() {
         print!(" - {} - ", i);
     }
 
+    println!("\n");
+
+    for (i, index) in arr.iter().enumerate() {
+        print!(" - {}|{} - ", i, index);
+    }
+
     println!("\nLoop while");
 
     let mut i: i8 = 0;
