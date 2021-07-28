@@ -27,8 +27,8 @@ fn main() {
     let string_ptr: &str = "Hola manito!";
     println!("{}", string_ptr);
     println!("String value: {0}", string_value);
-    let sample_i_size: isize = 9223372036854775807; //same i64
+    let sample_i_size: isize = 9223372036854775807; //system architecture
     println!("i size value: {0}", sample_i_size);
-    let sample: usize = 18446744073709551615; //same u64
+    let sample: usize = 18446744073709551615; //system architecture
     println!("u size value: {0}", sample);
 }
