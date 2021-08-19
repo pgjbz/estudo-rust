@@ -4,6 +4,7 @@ use rand::Rng;
 use std::cmp::Ordering;
 use std::io;
 use crate::guess::Guess;
+use std::num::ParseIntError;
 
 
 fn main() {
@@ -20,14 +21,16 @@ fn main() {
 			.read_line(&mut guess)
 			.expect("Failed to read line");
 
-		let guess = match Guess::new(
-			match guess.trim().parse() {
-				Ok(v) => v,
-				Err(e) => {
-					eprintln!("Please enter a number");
-					continue;
-				}
-			}) {
+		let result = str_to_int(&guess);
+
+		let guess_number: i32 = if let Err(err) = result {
+			println!("Please enter a number");
+			continue;
+		} else {
+			result.unwrap()
+		};
+
+		let guess = match Guess::new(guess_number) {
 			Ok(v) => v,
 			Err(e) => {
 				eprintln!("{}", e);
@@ -46,4 +49,8 @@ fn main() {
 			}
 		}
 	}
+}
+
+fn str_to_int(str: &String) -> Result<i32, ParseIntError> {
+	str.trim().parse()
 }
