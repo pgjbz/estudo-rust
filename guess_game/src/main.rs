@@ -52,5 +52,6 @@ fn main() {
 }
 
 fn str_to_int(str: &String) -> Result<i32, ParseIntError> {
-	str.trim().parse()
+	let number = str.trim().parse()?;
+	Ok(number)
 }
