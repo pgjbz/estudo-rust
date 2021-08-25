@@ -191,4 +191,10 @@ fn main() {
         y: p2
     };
     pair.cmp_display();
+
+    let list: Vec<Box<dyn Animal>> = vec![Box::new(parrot), Box::new(cat), Box::new(dog)];
+
+    for i in list {
+        i.eat();
+    }
 }
