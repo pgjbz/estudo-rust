@@ -20,7 +20,7 @@ impl Rectangle {
 }
 
 pub struct Guess {
-    value: i32,
+    pub value: i32,
 }
 
 impl Guess {
@@ -47,7 +47,7 @@ pub fn add_two(a: i32) -> i32 {
 }
 
 pub fn greetings(name: &str) -> String {
-    format!("Hello!")
+    format!("Hello, {}!", name)
 }
 
 #[cfg(test)]
