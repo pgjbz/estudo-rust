@@ -21,6 +21,10 @@ pub trait Animal {
     fn run(&self);
 }
 
+pub trait Eater {
+    fn eat(&self);
+}
+
 impl Animal for Dog {
     fn eat(&self) {
         println!("Dog eating with {} year old", &self.age);
@@ -28,6 +32,12 @@ impl Animal for Dog {
 
     fn run(&self) {
         println!("Dogo running....");
+    }
+}
+
+impl Eater for Dog {
+    fn eat(&self) {
+        println!("{} old dog, eating", self.age);
     }
 }
 
@@ -133,7 +143,7 @@ impl<T: Display + PartialOrd> Pair<T> {
 
 impl Display for Person {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        write!(f, "{{\"height\": {}, \"name\": \"{}\"}}", self.height, self.name);
+        write!(f, "{{\"height\": {}, \"name\": \"{}\"}}", self.height, self.name)?;
         Ok(())
     }
 }
@@ -191,6 +201,8 @@ fn main() {
         y: p2
     };
     pair.cmp_display();
+
+    Animal::eat(&dog);
 
     let list: Vec<Box<dyn Animal>> = vec![Box::new(parrot), Box::new(cat), Box::new(dog)];
 
